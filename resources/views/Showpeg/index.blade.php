@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container-fluid">
-	<h1><b>Data Pegawai</b> (Dilihat Khusus Pegawai)</h1>
+	<h1><b><i class="fa fa-database"></i>&nbsp;Detail Pegawai</b> (Dilihat Khusus Pegawai)</h1>
 	<br><br>
 <div class="table-responsive">
 	<table class="table table-bordered">
@@ -26,7 +26,7 @@
 			<td><center>{{ $data->jabatans->Nama_jabatan}}</center></td>
 			<td><center>{{ $data->golongans->Nama_golongan}}</center></td>
 			<td><center>{{ $data->users->permission}}</center></td>
-			<td><center><img src="{{asset('/assets/image/'.$data->Photo)}}" height="100px" width="100px"></center></td>
+			<td><center><img src="{{asset('/assets/image/'.$data->Photo)}}" height="100px" width="100px" class="img-circle"></center></td>
 			<td><center><a href="{{ url('Pegawai', $data->id)}}" class="btn btn-primary">Lihat</a></center></td>
 			<td><center><a href="{{ route('Pegawai.edit', $data->id)}}" class="btn btn-danger">Ubah</a></center></td>
 			<td><center>

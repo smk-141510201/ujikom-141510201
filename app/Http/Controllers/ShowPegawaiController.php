@@ -54,7 +54,8 @@ class ShowPegawaiController extends Controller
      */
     public function show($id)
     {
-        //
+        $showpeg = PegawaiModel::find($id);
+        return view('Showpeg.show', compact('showpeg'));
     }
 
     /**

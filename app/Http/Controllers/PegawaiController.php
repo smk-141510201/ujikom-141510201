@@ -45,9 +45,10 @@ class PegawaiController extends Controller
     public function create()
     {
         $user = User::all();
+        $pegawai = PegawaiModel::all();
         $gol = GolonganModel::all();
         $jab = JabatanModel::all();
-        return view('Pegawai.create', compact('user','gol','jab'));
+        return view('Pegawai.create', compact('user','gol','jab', 'pegawai'));
     }
 
     /**

@@ -2,22 +2,24 @@
 @section('content')
 
 <div class="container-fluid">
-	<h1>Data Penggajian</h1>
+	<h1><i class="fa fa-database"></i>&nbsp;<b>Data Penggajian</b></h1>
 	<br>
-	<a href="{{ url('/Penggajian/create')}}" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i>&nbsp;Tambah Data</a>
+	<a href="{{ url('/Penggajian/create')}}" class="btn btn-success"><i class="fa fa-pencil-square-o"></i>&nbsp;Tambah Data</a>
 <br>
 <br>
 <div class="table-responsive">
 	<table class="table table-bordered">
-		<tr class="warning">
+		<tr class="success">
 			<th><center>No</center></th>
-			<th><center>Kode Tunjangan Pegawai</center></th>
+			<th><center>Photo</center></th>
+			<th><center>Nama Pegawai</center></th>
+			<th><center>NIP</center></th>
 			<th><center>Jumlah Jam Lembur</center></th>
 			<th><center>Jumlah Uang Lembur</center></th>
 			<th><center>Gaji Pokok</center></th>
 			<th><center>Total Gaji</center></th>
-			<th><center>Tanggal Pengembalian</center></th>
-			<th><center>Status Pengembalian</center></th>
+			<th><center>Tanggal Pengambilan</center></th>
+			<th><center>Status Pengambilan</center></th>
 			<th><center>Petugas Penerima</center></th>
 			<th colspan="3"><center>Action</center></th>
 		</tr>
@@ -26,32 +28,38 @@
 		@foreach ($penggajian as $data)
 		<tr>
 			<td><center>{{ $no++ }}</center></td>
-			<img height="100px" alt="Smiley face" width="100px" class="img-circle" src="asset/assets/image/{{$data->tunjangan_pegawais->pegawais->Photo}}">
-				<h3>{{$data->tunjangan_pegawais->pegawais->users->name}}</h3>
-				<h4>{{$data->tunjangan_pegawais->pegawais->Nip}}</h4>
-				<h5><b>@if($data->Tanggal_pengambilan == ""&&$data->Status_pengambilan == "0")
+			<td><center><img height="50px" alt="Smiley face" width="50px" class="img-circle" src="assets/image/{{$data->tunjangan_pegawais->pegawais->Photo}}"></center></td>
+			<td><center>{{$data->tunjangan_pegawais->pegawais->users->name}}</center></td>
+			<td><center>{{$data->tunjangan_pegawais->pegawais->Nip}}</center></td>
+			<td><center>{{$data->Jumlah_jam_lembur}}</center></td>
+			<td><center>Rp. {{number_format($data->Jumlah_uang_lembur)}}</center></td>
+			<td><center>Rp. {{number_format($data->Gaji_pokok)}}</center></td>
+			<td><center>Rp. {{number_format($data->Total_gaji)}}</center></td>
+			<td><center>{{$data->Tanggal_pengambilan}}</center></td>
+			<td><center> @if($data->Tanggal_pengambilan == ""&&$data->Status_pengambilan == "0")
 				Gaji Belum Diambil 
 				<div class="col-md-12">
-				<a class="btn btn-primary col-md-12" href="{{route('penggajian.edit',$datapenggajian->id)}}">Ubah Pengambilan</a>
+				<a class="btn btn-danger col-md-12" href="{{route('Penggajian.edit',$data->id)}}">Ubah Pengambilan</a>
 				</div>
 						@elseif($data->Tanggal_pengambilan == ""||$data->Status_pengambilan == "0")
 						Gaji Belum Diambil
 				<div class="col-md-12">
-				<a class="btn btn-primary col-md-12 " href="{{route('penggajian.edit',$datapenggajian->id)}}">Ubah Pengambilan</a>
+				<a class="btn btn-danger col-md-12 " href="{{route('Penggajian.edit',$data->id)}}">Ubah Pengambilan</a>
 				</div>
-						@else
+						@else($data->Tanggal_pengambilan == ""||$data->Status_pengambilan == "1")
 						Gaji Sudah Diambil Pada {{$data->Tanggal_pengambilan}}
-						@endif</b></h5>
-				</h5>
-			<td><center><a href="{{ url('Penggajian', $data->id)}}" class="btn btn-primary">Lihat</a></center></td>
-			<td><center><a href="{{ route('Penggajian.edit', $data->id)}}" class="btn btn-danger">Ubah</a></center></td>
+						@endif </center></td>
+			<td><center>{{$data->Petugas_penerima}}</center></td>
+			<td><center><a href="{{ url('Penggajian', $data->id)}}" class="btn btn-primary"><i class="fa fa-eye"></i></a></center></td>
+			<td><center><a href="{{ route('Penggajian.edit', $data->id)}}" class="btn btn-danger"><i class="fa fa-pencil-square-o"></i></a></center></td>
 			<td><center>
 				{!! Form::open(['method'=> 'DELETE', 'route' => ['Pegawai.destroy', $data->id]]) !!}
-				{!! Form::submit('Hapus', ['class' =>'btn btn-success']) !!}
+				<button type="submit" class="btn btn-warning"><i class="fa fa-trash-o"></i></button>
 			</center></td>
 		</tr>
 		@endforeach
 	</table>
+</div>
 </div>
 </div>
 @stop

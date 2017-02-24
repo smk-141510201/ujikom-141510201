@@ -2,14 +2,14 @@
 @section('content')
 
 <div class="container-fluid">
-	<h1>Data Tunjangan Pegawai</h1>
+	<h1><i class="fa fa-database"></i>&nbsp;<b>Data Tunjangan Pegawai</b></h1>
 	<br>
-	<a href="{{ url('/Tunjanganpegawai/create')}}" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i>&nbsp;Tambah Data</a>
+	<a href="{{ url('/Tunjanganpegawai/create')}}" class="btn btn-success"><i class="fa fa-pencil-square-o"></i>&nbsp;Tambah Data</a>
 <br>
 <br>
 <div class="table-responsive">
 	<table class="table table-bordered">
-		<tr class="warning">
+		<tr class="success">
 			<th><center>No</center></th>
 			<th><center>Kode Tunjangan</center></th>
 			<th><center>Photo</center></th>

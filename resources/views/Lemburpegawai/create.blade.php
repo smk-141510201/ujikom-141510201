@@ -2,10 +2,12 @@
 @section('content')
 
 <div class="container-fluid">
-<div class="panel-heading"><h3><b>Tambah Lembur Pegawai</b></h3></div>
+<h3><b>Tambah Lembur Pegawai</b></h3>
+<hr>
 	<div class="panel-body">
 	{!! Form::open(['url' => '/Lemburpegawai']) !!}
 
+	<div class="col-md-4">
 	<div class="form-group">
 		{!! Form::label('Kode Lembur', 'Kode Lembur : ') !!}
 		<select class="form-control" name="Kode_lembur_id"> 
@@ -14,7 +16,9 @@
 		@endforeach
 	</select>
 	</div>
+	</div>
 
+	<div class="col-md-4">
 	<div class="form-group">
 		{!! Form::label('Nama Pegawai', 'Nama Pegawai : ') !!}
 		<select class="form-control" name="Pegawai_id"> 
@@ -23,7 +27,9 @@
 		@endforeach
 	</select>
 	</div>
+	</div>
 
+	<div class="col-md-4">
 	<div class="form-group{{ $errors->has('Jumlah_jam') ? ' has-error' : '' }}">
      	<label for="Jumlah_jam">Jumlah Jam</label>
                       
@@ -36,10 +42,13 @@
       @endif
                             
     </div>
+    </div>
 
+    <div class="col-md-4">
 	<div class="form-group">
-	{!! Form::submit('Simpan', ['class' => 'btn btn-warning']) !!}	
+	{!! Form::submit('Simpan', ['class' => 'btn btn-primary']) !!}	
 	{!! Form::close() !!}
+	</div>
 	</div>
 	
 </div>

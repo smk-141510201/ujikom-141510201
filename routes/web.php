@@ -23,14 +23,9 @@ Route::resource('/Lemburpegawai', 'LemburPegawaiController');
 Route::resource('/Tunjangan', 'TunjanganController');
 Route::resource('/Tunjanganpegawai', 'TunjanganPegawaiController');
 Route::resource('/Penggajian', 'PenggajianController');
+Route::resource('/Showpenggajian', 'ShowPenggajianController');
 
-Route::group(['middleware' => ['api'],'prefix' => 'api'], function () {
-    Route::post('register', 'APIController@register');
-    Route::post('login', 'APIController@login');
-    Route::group(['middleware' => 'jwt-auth'], function () {
-    	Route::post('get_user_details', 'APIController@get_user_details');
-    });
-});
+
 
 
 

@@ -2,14 +2,14 @@
 @section('content')
 
 <div class="container-fluid">
-	<h1>Data Pegawai</h1>
+<h1><i class="fa fa-database"></i>&nbsp;<b>Data Pegawai</b></h1>
 	<br>
-	<a href="{{ url('/Pegawai/create')}}" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i>&nbsp;Tambah Data</a>
+	<a href="{{ url('/Pegawai/create')}}" class="btn btn-success"><i class="fa fa-pencil-square-o"></i>&nbsp;Tambah Data</a>
 <br>
 <br>
 <div class="table-responsive">
 	<table class="table table-bordered">
-		<tr class="warning">
+		<tr class="success">
 			<th><center>No</center></th>
 			<th><center>NIP</center></th>
 			<th><center>Nama pegawai</center></th>
@@ -29,12 +29,12 @@
 			<td><center>{{ $data->jabatans->Nama_jabatan}}</center></td>
 			<td><center>{{ $data->golongans->Nama_golongan}}</center></td>
 			<td><center>{{ $data->users->permission}}</center></td>
-			<td><center><img src="{{asset('/assets/image/'.$data->Photo)}}" height="100px" width="100px"></center></td>
+			<td><center><img src="{{asset('/assets/image/'.$data->Photo)}}" height="100px" width="100px" class="img-circle"></center></td>
 			<td><center><a href="{{ url('Pegawai', $data->id)}}" class="btn btn-primary"><i class="fa fa-eye"></i></a></center></td>
 			<td><center><a href="{{ route('Pegawai.edit', $data->id)}}" class="btn btn-danger"><i class="fa fa-pencil-square-o"></i></a></center></td>
 			<td><center>
 				{!! Form::open(['method'=> 'DELETE', 'route' => ['Pegawai.destroy', $data->id]]) !!}
-				<button type="submit" class="btn btn-primary"><i class="fa fa-trash-o"></i></button>
+				<button type="submit" class="btn btn-warning"><i class="fa fa-trash-o"></i></button>
 			</center></td>
 		</tr>
 		@endforeach

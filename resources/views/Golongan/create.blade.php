@@ -3,10 +3,12 @@
 
 <div class="container-fluid">
 
-<div class="panel-heading"><h3><b>Tambah Golongan</b></h3></div>
+<h3><b>Tambah Golongan</b></h3>
+<hr>
 	<div class="panel-body">
 	{!! Form::open(['url' => '/Golongan']) !!}
 
+<div class="col-md-4">
 	<div class="form-group{{ $errors->has('Kode_golongan') ? ' has-error' : '' }}">
      	<label for="Kode_golongan">Kode Golongan</label>
                       
@@ -18,6 +20,9 @@
       	</span>
       @endif                     
     </div>
+    </div>
+
+<div class="col-md-4">
 	<div class="form-group{{ $errors->has('Nama_golongan') ? ' has-error' : '' }}">
      	<label for="Nama_golongan">Nama Golongan</label>
                       
@@ -29,6 +34,9 @@
       	</span>
       @endif                     
     </div>
+    </div>
+
+<div class="col-md-4">
 	<div class="form-group{{ $errors->has('Besaran_uang') ? ' has-error' : '' }}">
      	<label for="Besaran_uang">Besaran Uang</label>
                       
@@ -38,14 +46,16 @@
       	<span class="help-block">
       		<strong>{{ $errors->first('Besaran_uang') }}</strong>
       	</span>
-      @endif
-                            
+      @endif                
+    </div>
     </div>
 	
+<div class="col-md-4">
 	<div class="form-group">
 	{!! Form::submit('Save', ['class' => 'btn btn-info']) !!}	
 	{!! Form::close() !!}
 	</div>
+</div>
 	
 
 

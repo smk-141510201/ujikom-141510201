@@ -6,25 +6,39 @@
 
 <div class="container-fluid">
 
-<div class="panel-heading"><h3><b>Ubah Jabatan</b></h3></div>
+<h3><b>Ubah Jabatan</b></h3>
+<hr>
+
 <div class="panel-body">
 	{!! Form::model($jab, ['method' => 'PATCH', 'route' => ['Jabatan.update', $jab->id]]) !!}
+
+	<div class="col-md-3">
 	<div class="form-group">
 		{!! Form::label('Kode Jabatan', 'Kode Jabatan :') !!}
 		{!! Form::text ('Kode_jabatan', null, ['class' => 'form-control']) !!}
 	</div>
+	</div>
+
+	<div class="col-md-3">
 	<div class="form-group">
 		{!! Form::label('Nama Jabatan', 'Nama Jabatan :') !!}
 		{!! Form::text ('Nama_jabatan', null, ['class' => 'form-control']) !!}
 	</div>
+	</div>
+
+	<div class="col-md-3">
 	<div class="form-group">
 		{!! Form::label('Besaran Uang', 'Besaran Uang :') !!}
 		{!! Form::text ('Besaran_uang', null, ['class' => 'form-control']) !!}
 	</div>
+	</div>
+
+	<div class="col-md-10">
 	<div class="form-group">
 		{!! Form::submit('Ubah', ['class' => 'btn btn-info']) !!}
 	</div>
 	{!! Form::close() !!}
+</div>
 </div>
 </div>
 </div>

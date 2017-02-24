@@ -160,6 +160,8 @@ ini create
        
 @endsection
 ini read
+
+
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
@@ -231,3 +233,72 @@ class PenggajianController extends Controller
        elseif (!isset($wherelemburpegawai)) {
            $nol=0 ;
 ini controller
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public function index()
+   {
+       $penggajian=PenggajianModel::paginate(3);
+       return view('Penggajian.index',compact('penggajian'));
+   }
+   /**
+    * Show the form for creating a new resource.
+    *
+    * @return \Illuminate\Http\Response
+    */
+   public function create()
+   {   
+       $tunjangan=TunjanganPegawaiModel::paginate(10);
+       return view('Penggajian.create',compact('tunjangan'));
+   }
+   /**
+    * Store a newly created resource in storage.
+    *
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
+   public function store(Request $request)
+   {
+       $penggajian=Input::all();
+        // dd($penggajian);
+       $where=TunjanganPegawaiModel::where('id',$penggajian['Tunjangan_pegawai_id'])->first();
+       // dd($where);
+       $wherepenggajian=PenggajianModel::where('Tunjangan_pegawai_id',$where->id)->first();
+       // dd($wherepenggajian);
+       $wheretunjangan=PenggajianModel::where('id',$where->Kode_tunjangan_id)->first();
+       // dd($where);
+       $wherepegawai=PegawaiModel::where('id',$where->Pegawai_id)->first();
+       // dd($wherepegawai);
+       $wherekategorilembur=KategoriLemburModel::where('Jabatan_id',$wherepegawai->Jabatan_id)->where('Golongan_id',$wherepegawai->Golongan_id)->first();
+       // dd($wherekategorilembur);
+       $wherelemburpegawai=LemburPegawaiModel::where('Pegawai_id',$wherepegawai->id)->first();
+       // dd($wherelemburpegawai);
+       $wherejabatan=JabatanModel::where('id',$wherepegawai->Jabatan_id)->first();
+       // dd($wherejabatan);
+       $wheregolongan=Golongan_id::where('id',$wherepegawai->Golongan_id)->first();
+       // dd($wheregolongan);
+       $penggajian=new PenggajianModel ;
+       if (isset($wherepenggajian)) {
+           $error=true ;
+           $tunjangan=TunjanganPegawaiModel::paginate(10);
+           return view('Penggajian.create',compact('tunjangan','error'));
+       }
+       elseif (!isset($wherelemburpegawai)) {
+           $nol=0 ;
+
+
+
+
+

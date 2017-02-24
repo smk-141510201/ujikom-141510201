@@ -2,7 +2,8 @@
 
 @section('content')
 <div class="container-fluid">
-<div class="alert alert-warning" role="alert"><h4><b><center>Tambah Pegawai</center></b></h4></div>
+<h2><b><center>Tambah Pegawai</center></b></h2>
+<hr>
     <div class="row">
                 <div class="panel-body">
 
@@ -12,6 +13,7 @@
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
+                            <div class="form-group">
                                 <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
 
                                 @if ($errors->has('name'))
@@ -21,11 +23,13 @@
                                 @endif
                             </div>
                         </div>
+                        </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
+                             <div class="form-group">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
                                 @if ($errors->has('email'))
@@ -35,11 +39,13 @@
                                 @endif
                             </div>
                         </div>
+                        </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
+                             <div class="form-group">
                                 <input id="password" type="password" class="form-control" name="password" required>
 
                                 @if ($errors->has('password'))
@@ -49,19 +55,23 @@
                                 @endif
                             </div>
                         </div>
+                        </div>
 
                         <div class="form-group">
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
                             <div class="col-md-6">
+                             <div class="form-group">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
+                        </div>
                         </div>
 
                         <div class="form-group{{ $errors->has('permission') ? ' has-error' : '' }}">
                             <label for="permission" class="col-md-4 control-label">Permission</label>
 
                             <div class="col-md-6">
+                             <div class="form-group">
                                 <select id="permission" type="text" class="form-control" name="permission" required>
                                     <option value="Admin">Admin</option>
                                     <option value="Pegawai">Pegawai</option>
@@ -79,6 +89,7 @@
                         </div>
                         </div>
                         </div>
+                        </div>
                         <hr>
 
                             <div class="container-fluid">
@@ -89,15 +100,17 @@
                             <label for="Nip" class="col-md-4 control-label">NIP</label>
 
                             <div class="col-md-6">
+                             <div class="form-group">
                                 <input id="Nip" type="text" class="form-control" name="Nip" required>
                             </div>
+                        </div>
                         </div>
 
                          <div class="form-group{{ $errors->has('Jabatan_id') ? ' has-error' : '' }}">
                             <label for="Jabatan_id" class="col-md-4 control-label">Jabatan</label>
 
                             <div class="col-md-6">
-                    
+                             <div class="form-group">
                                 @if ($errors->has('Jabatan_id'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('Jabatan_id') }}</strong>
@@ -115,7 +128,7 @@
                             <label for="Golongan_id" class="col-md-4 control-label">Golongan</label>
 
                             <div class="col-md-6">
-                    
+                             <div class="form-group">
                                 @if ($errors->has('Golongan_id'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('Golongan_id') }}</strong>
@@ -133,8 +146,10 @@
                             <label for="Photo" class="col-md-4 control-label">Photo</label>
 
                             <div class="col-md-6">
+                             <div class="form-group">
                                 <input id="Photo" type="file" class="form-control" name="Photo" required>
                             </div>
+                        </div>
                         </div>
 
 

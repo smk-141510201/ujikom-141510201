@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Feb 21, 2017 at 09:46 AM
+-- Generation Time: Feb 24, 2017 at 05:17 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.12
 
@@ -40,7 +40,6 @@ CREATE TABLE `golongans` (
 --
 
 INSERT INTO `golongans` (`id`, `Kode_golongan`, `Nama_golongan`, `Besaran_uang`, `created_at`, `updated_at`) VALUES
-(1, 'G-01', 'Senior', 1000000, '2017-02-21 00:13:07', '2017-02-21 00:13:27'),
 (2, 'G-02', 'Junior', 500000, '2017-02-21 00:13:42', '2017-02-21 00:13:42');
 
 -- --------------------------------------------------------
@@ -63,7 +62,7 @@ CREATE TABLE `jabatans` (
 --
 
 INSERT INTO `jabatans` (`id`, `Kode_jabatan`, `Nama_jabatan`, `Besaran_uang`, `created_at`, `updated_at`) VALUES
-(4, 'J-01', 'HRD', 1000000, '2017-02-21 02:32:30', '2017-02-21 02:32:30');
+(5, 'J-02', 'Manager', 5000000, '2017-02-23 00:21:42', '2017-02-23 00:21:42');
 
 -- --------------------------------------------------------
 
@@ -86,7 +85,7 @@ CREATE TABLE `kategori_lemburs` (
 --
 
 INSERT INTO `kategori_lemburs` (`id`, `Kode_lembur`, `Jabatan_id`, `Golongan_id`, `Besaran_uang`, `created_at`, `updated_at`) VALUES
-(2, 'K-01', 4, 2, 600000, '2017-02-21 02:36:32', '2017-02-21 02:36:32');
+(4, 'K-01', 5, 2, 60000, '2017-02-23 19:57:10', '2017-02-23 19:57:10');
 
 -- --------------------------------------------------------
 
@@ -102,6 +101,13 @@ CREATE TABLE `lembur_pegawais` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `lembur_pegawais`
+--
+
+INSERT INTO `lembur_pegawais` (`id`, `Kode_lembur_id`, `Pegawai_id`, `Jumlah_jam`, `created_at`, `updated_at`) VALUES
+(9, 4, 8, 8, '2017-02-23 22:15:08', '2017-02-23 22:15:08');
 
 -- --------------------------------------------------------
 
@@ -160,6 +166,13 @@ CREATE TABLE `pegawais` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `pegawais`
+--
+
+INSERT INTO `pegawais` (`id`, `Nip`, `User_id`, `Jabatan_id`, `Golongan_id`, `Photo`, `created_at`, `updated_at`) VALUES
+(8, '43534', 13, 5, 2, '39c78cee9cae487daa0425f7d9ec420d.png', '2017-02-23 22:14:41', '2017-02-23 22:14:41');
+
 -- --------------------------------------------------------
 
 --
@@ -180,6 +193,13 @@ CREATE TABLE `penggajians` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `penggajians`
+--
+
+INSERT INTO `penggajians` (`id`, `Tunjangan_pegawai_id`, `Jumlah_jam_lembur`, `Jumlah_uang_lembur`, `Gaji_pokok`, `Total_gaji`, `Tanggal_pengambilan`, `Status_pengambilan`, `Petugas_penerima`, `created_at`, `updated_at`) VALUES
+(6, 8, 8, 480000, 5500000, 480000, '2017-02-24', 1, 'Hari', '2017-02-23 22:16:15', '2017-02-23 22:17:02');
+
 -- --------------------------------------------------------
 
 --
@@ -198,6 +218,13 @@ CREATE TABLE `tunjangans` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `tunjangans`
+--
+
+INSERT INTO `tunjangans` (`id`, `Kode_tunjangan`, `Jabatan_id`, `Golongan_id`, `Status`, `Jumlah_anak`, `Besaran_uang`, `created_at`, `updated_at`) VALUES
+(4, 'T-02', 5, 2, 'Menikah', 7, 230000, '2017-02-23 22:15:40', '2017-02-23 22:15:40');
+
 -- --------------------------------------------------------
 
 --
@@ -211,6 +238,13 @@ CREATE TABLE `tunjangan_pegawais` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tunjangan_pegawais`
+--
+
+INSERT INTO `tunjangan_pegawais` (`id`, `Kode_tunjangan_id`, `Pegawai_id`, `created_at`, `updated_at`) VALUES
+(8, 4, 8, '2017-02-23 22:15:58', '2017-02-23 22:15:58');
 
 -- --------------------------------------------------------
 
@@ -234,8 +268,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `permission`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Heni Fitriani', 'heni@gmail.com', '$2y$10$exlImrFicc8KOudME6KSp.PnhOeHDq.W7t0LlRi61XdwgqtaI5JiO', 'Admin', NULL, '2017-02-21 00:11:27', '2017-02-21 00:11:27'),
-(2, 'Adam Kusumah', 'adam@gmail.com', '$2y$10$.80muucJcq2vjAqQQ1s5Y.1hO0XNjWBk/lIaXiJ7nxVhA9DQOra36', 'Admin', NULL, '2017-02-21 00:14:40', '2017-02-21 00:14:40');
+(7, 'Hari', 'hari@gmail.com', '$2y$10$Iq4AY2WX8O2Z3i9aD6eote0ryB0yy8/IU2hzxa0RdcqUto1bpJ4zG', 'Admin', 'ZanTju9YwIQvrHNuJn8kYFJJwVfpy6ux4ov5aNdGe37nfBKQwBOFskkJ1bmx', '2017-02-22 23:44:16', '2017-02-23 18:58:09'),
+(12, 'Ica Cahyani', 'ica@gmail.com', '$2y$10$i6vZd.UD27t1Yen4dQUhjOz0O/tIngmd.4iSZGsCdt0br1ntgLSAG', 'Admin', NULL, '2017-02-23 21:25:08', '2017-02-23 21:25:08'),
+(13, 'Heni Fitriani', 'heni1998@gmail.com', '$2y$10$wbGUb899qB0ZoMLRp1c/aOPztnLVtA697Wg2cfJ.DSNFldPK8iQTu', 'HRD', NULL, '2017-02-23 22:14:41', '2017-02-23 22:14:41');
 
 --
 -- Indexes for dumped tables
@@ -339,17 +374,17 @@ ALTER TABLE `golongans`
 -- AUTO_INCREMENT for table `jabatans`
 --
 ALTER TABLE `jabatans`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `kategori_lemburs`
 --
 ALTER TABLE `kategori_lemburs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `lembur_pegawais`
 --
 ALTER TABLE `lembur_pegawais`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `migrations`
 --
@@ -359,27 +394,27 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pegawais`
 --
 ALTER TABLE `pegawais`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `penggajians`
 --
 ALTER TABLE `penggajians`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tunjangans`
 --
 ALTER TABLE `tunjangans`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tunjangan_pegawais`
 --
 ALTER TABLE `tunjangan_pegawais`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- Constraints for dumped tables
 --

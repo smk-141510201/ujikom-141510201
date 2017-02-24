@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>PENGGAJIAN | SMK ASSALAAM</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-inverse navbar-static-top">
+        <nav class="navbar navbar-info navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -36,23 +36,15 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <center><img src="/assets/image/logo.jpg"  height="30px" width="30px"></center><b>PENGGAJIAN</b>
+                       <hr>
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/Jabatan')}}">Jabatan</a></li>
-                        <li><a href="{{ url('/Golongan')}}">Golongan</a></li>
-                        <li><a href="{{ url('/Kategorilembur')}}">Kategori Lembur</a></li>
-                        <li><a href="{{ url('/Pegawai')}}">Pegawai</a></li>
-                        <li><a href="{{ url('/ShowPegawai')}}">Pegawai (Khusus Pegawai)</a></li>
-                        <li><a href="{{ url('/Lemburpegawai')}}">Lembur Pegawai</a>
-                        <li><a href="{{ url('/Tunjangan')}}">Tunjangan</a></li>
-                        <li><a href="{{ url('/Tunjanganpegawai')}}">Tunjangan Pegawai</a></li>
-                        <li><a href="{{ url('/Penggajian')}}">Penggajian</a></li>
-
+                       
 
 
                         </li>
@@ -60,12 +52,13 @@
 
 
                     </ul>
-
+                     <div class="box-footer text-black">
+                     <div class="container">
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
+                            <li><a href="{{ url('/login') }}"></a></li>
                             
                         @else
                             <li class="dropdown">
@@ -89,6 +82,8 @@
                             </li>
                         @endif
                     </ul>
+                    </div>
+                </div>
                 </div>
             </div>
         </nav>

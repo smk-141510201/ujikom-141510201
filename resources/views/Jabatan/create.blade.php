@@ -5,10 +5,12 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="container-fluid">
-<div class="panel-heading"><h3><b>Tambah Jabatan</b></h3></div>
+<h3><b>Tambah Jabatan</b></h3>
+<hr>
 	<div class="panel-body">
 	{!! Form::open(['url' => '/Jabatan']) !!}
 
+  <div class="col-md-4">
 	 <div class="form-group{{ $errors->has('Kode_jabatan') ? ' has-error' : '' }}">
      	<label for="Kode_jabatan">Kode Jabatan</label>
                       
@@ -19,9 +21,11 @@
       		<strong>{{ $errors->first('Kode_jabatan') }}</strong>
       	</span>
       @endif
-                            
+             
+    </div>               
     </div>
 
+  <div class="col-md-4">
 	<div class="form-group{{ $errors->has('Nama_jabatan') ? ' has-error' : '' }}">
      	<label for="Nama_jabatan">Nama Jabatan</label>
                       
@@ -32,9 +36,10 @@
       		<strong>{{ $errors->first('Nama_jabatan') }}</strong>
       	</span>
       @endif
-                            
+  </div>                   
     </div>
 
+    <div class="col-md-4">
 	<div class="form-group{{ $errors->has('Besaran_uang') ? ' has-error' : '' }}">
      	<label for="Besaran_uang">Besaran Uang</label>
                       
@@ -47,12 +52,13 @@
       @endif
                             
     </div>
+    </div>
+  <div class="col-md-6">
 	<div class="form-group">
 	{!! Form::submit('Simpan', ['class' => 'btn btn-info']) !!}	
 	{!! Form::close() !!}
 	</div>
-	
-
+  </div>
 </div>
 </div>
 

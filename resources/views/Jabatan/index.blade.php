@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container-fluid">
-	<h1>Data Jabatan</h1>
+	<h1><b><i class="fa fa-database"></i>&nbsp;Data Jabatan</b></h1>
 	<br>
 	<a href="{{ url('/Jabatan/create')}}" class="btn btn-success"><i class="fa fa-pencil-square-o"></i>&nbsp;Tambah Data</a>
 <br>

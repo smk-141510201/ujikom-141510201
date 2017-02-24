@@ -2,14 +2,14 @@
 @section('content')
 
 <div class="container-fluid">
-	<h1>Data Tunjangan</h1>
+	<h1><i class="fa fa-database"></i>&nbsp;<b>Data Tunjangan</b></h1>
 	<br>
-	<a href="{{ url('/Tunjangan/create')}}" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i>&nbsp;Tambah Data</a>
+	<a href="{{ url('/Tunjangan/create')}}" class="btn btn-success"><i class="fa fa-pencil-square-o"></i>&nbsp;Tambah Data</a>
 <br>
 <br>
 <div class="table-responsive">
 	<table class="table table-bordered">
-		<tr class="warning">
+		<tr class="success">
 			<th><center>No</center></th>
 			<th><center>Kode Tunjangan</center></th>
 			<th><center>Nama Jabatan</center></th>
